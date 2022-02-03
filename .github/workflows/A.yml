@@ -42,8 +42,8 @@ jobs:
                echo ${GITHUB_WORKSPACE}
                echo "${dtt}" 
                echo "${dtt}" >> recieved.md
-               bash make-rdme.sh >> log.txt 2>&1
-               sh all-run-group.sh 
+               #bash make-rdme.sh >> log.txt 2>&1
+               #sh all-run-group.sh 
                git config --local user.email "action@github.com"
                git config --local user.name "GitHub Action"
                git add .
