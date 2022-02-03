@@ -1,18 +1,18 @@
-name: A
+name: D
 
 on:
    repository_dispatch:
-       types: A
+       types: D
 
 jobs:
    sj:
        runs-on: ubuntu-latest
        steps:
-           - name: Checkout A
+           - name: Checkout D
              uses: actions/checkout@v2
              with:
                path: main
-           - name: Setting A
+           - name: Setting D
              run: |
                cd ./main/
                ls ${GITHUB_WORKSPACE}
@@ -20,24 +20,24 @@ jobs:
                pwd
                echo "main is done..."
 
-           - name: eib-a
+           - name: eib-d
              uses: actions/checkout@v2
              with:
-               repository: ehepi/eib-a
+               repository: ehepi/eib-d
                token: ${{ secrets.SUPER_SECRET }}
-               path: eib-a
+               path: eib-d
            - name: Setup
              uses: actions/setup-python@v2
              with:
                python-version: '3.8'
            - name: Install
              run: |
-               cd ./eib-a/
+               cd ./eib-d/
                python -m pip install --upgrade pip
                pip install -r requirements.txt
-           - name: Compute A
+           - name: Compute D
              run: |
-               cd ./eib-a/
+               cd ./eib-d/
                dtt=`TZ=IST-5:30 date`
                echo ${GITHUB_WORKSPACE}
                echo "${dtt}" 
